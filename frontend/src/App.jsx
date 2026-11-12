@@ -23,7 +23,8 @@ function App() {
   const [active, setActive] = useState(0);
   const [slide, setSlide] = useState(0);
   const [query, setQuery] = useState('');
-  const visibleNotices = notices.filter((row) => row[1].includes(query));
+  const [category, setCategory] = useState('전체보기');
+  const visibleNotices = notices.filter((row) => (category === '전체보기' || row[0] === category) && row[1].includes(query));
   return <>
     <div className="utility"><div className="wide"><span>대련한국국제학교 Dalian Korean International School</span><div><a href="#">HOME</a><a href="#">LOGIN</a><a href="#">SITEMAP</a></div></div></div>
     <header className="masthead wide">
@@ -43,4 +44,5 @@ function App() {
   </>;
 }
 export default App;
+
 
